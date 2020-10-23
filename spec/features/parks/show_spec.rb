@@ -19,12 +19,12 @@ describe "As a visitor, when I visit a park's show page" do
     it "I see the name of all rides at the park and average ride rating" do
       park = Park.create(name: "Hershey Park",
                          admission: "$50.00")
-      ride_1 = Ride.create(name: "Lightning Racer",
-                           rating: 6)
-      ride_2 = Ride.create(name: "Storm Runner",
-                           rating: 8)
-      ride_3 = Ride.create(name: "The Great Bear",
-                           rating: 9)
+      ride_1 = park.rides.create(name: "Lightning Racer",
+                                 rating: 6)
+      ride_2 = park.rides.create(name: "Storm Runner",
+                                 rating: 8)
+      ride_3 = park.rides.create(name: "The Great Bear",
+                                 rating: 9)
       visit "/parks/#{park.id}"
 
       expect(page).to have_content(park.name)
