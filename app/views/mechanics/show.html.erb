@@ -1,0 +1,13 @@
+<h3> Mechanic: <%= @mechanic.name %></h3>
+<h3> Years of Experience: <%= @mechanic.exp %> years</h3>
+<h3> Current rides they're working on: </h3>
+<% @rides.each do |ride| %>
+  <%= ride.name %>
+<% end %>
+<br>
+<%= form_tag '/mechanics' do %>
+  <%= label_tag 'Add a ride to their workload:' %>
+  <%= text_field_tag :ride %>
+
+  <%= submit_tag 'Submit' %>
+<% end %>

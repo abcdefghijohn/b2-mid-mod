@@ -31,15 +31,6 @@ ActiveRecord::Schema.define(version: 2020_10_23_164853) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "park_rides", force: :cascade do |t|
-    t.bigint "park_id"
-    t.bigint "ride_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["park_id"], name: "index_park_rides_on_park_id"
-    t.index ["ride_id"], name: "index_park_rides_on_ride_id"
-  end
-
   create_table "parks", force: :cascade do |t|
     t.string "name"
     t.string "admission"
@@ -58,7 +49,5 @@ ActiveRecord::Schema.define(version: 2020_10_23_164853) do
 
   add_foreign_key "mechanic_rides", "mechanics"
   add_foreign_key "mechanic_rides", "rides"
-  add_foreign_key "park_rides", "parks"
-  add_foreign_key "park_rides", "rides"
   add_foreign_key "rides", "parks"
 end
